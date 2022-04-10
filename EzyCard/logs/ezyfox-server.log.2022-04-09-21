@@ -1,0 +1,75 @@
+09 Apr 2022 | 21:06:52,473 | INFO  | ezyfox-socket-reader-12-1 | wrapper.impl.EzyNioSessionManagerImpl |     | provide session: Session#2(owner: null, address: /127.0.0.1:54103), sessions size = 1
+09 Apr 2022 | 21:06:52,501 | INFO  | ezyfox-system-request-handler-15-4 | plugin.controller.UserLoginController |     | Welcome test! login in
+09 Apr 2022 | 21:06:52,503 | INFO  | ezyfox-system-request-handler-15-4 | plugin.controller.UserLoginController |     | user and password match, accept user test
+09 Apr 2022 | 21:06:52,504 | INFO  | ezyfox-system-request-handler-15-4 | wrapper.impl.EzyZoneUserManagerImpl |     | zone: EzyCard add user: test, locks.size = 1, usersById.size = 1, usersByName.size = 1
+09 Apr 2022 | 21:06:52,526 | INFO  | ezyfox-system-request-handler-15-5 | wrapper.impl.EzyAppUserManagerImpl |     | app: EzyCard add user: test, locks.size = 1, usersById.size = 1, usersByName.size = 1
+09 Apr 2022 | 21:07:31,512 | INFO  | ezyfox-disconnection-handler-17-2 | wrapper.impl.EzyNioSessionManagerImpl |     | remove session: Session#2(owner: test, address: /127.0.0.1:54103), remain sessions = 0, login sessions = 0, sessions by id = 0, sessions by connection = 0
+09 Apr 2022 | 21:07:31,512 | INFO  | ezyfox-disconnection-handler-17-2 | command.impl.EzyCloseSessionImpl |     | close session: /127.0.0.1:54103, reason: UNKNOWN
+09 Apr 2022 | 21:07:31,512 | INFO  | ezyfox-disconnection-handler-17-2 | wrapper.impl.EzyZoneUserManagerImpl |     | zone: EzyCard remove user: test, locks.size = 0, usersById.size = 0, usersByName.size = 0
+09 Apr 2022 | 21:07:31,512 | INFO  | ezyfox-user-removal-handler-18-2 | wrapper.impl.EzyAppUserManagerImpl |     | app: EzyCard remove user: test, locks.size = 0, usersById.size = 0, usersByName.size = 0
+09 Apr 2022 | 21:12:54,032 | INFO  | ezyfox-socket-reader-12-1 | wrapper.impl.EzyNioSessionManagerImpl |     | provide session: Session#3(owner: null, address: /127.0.0.1:54558), sessions size = 1
+09 Apr 2022 | 21:12:54,054 | INFO  | ezyfox-system-request-handler-15-7 | plugin.controller.UserLoginController |     | Welcome test! login in
+09 Apr 2022 | 21:12:54,059 | WARN  | ezyfox-system-request-handler-15-7 | command.impl.EzyHandleExceptionImpl |     | handle exception
+com.tvd12.ezyfoxserver.exception.EzyRequestHandleException: error when handle request from: Session#3(owner: null, address: /127.0.0.1:54558), command: LOGIN, data: [EzyCard, test, test, null]
+	at com.tvd12.ezyfoxserver.exception.EzyRequestHandleException.requestHandleException(EzyRequestHandleException.java:29)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.handleRequest(EzySimpleDataHandler.java:112)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.handleReceivedData(EzySimpleDataHandler.java:86)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.dataReceived(EzySimpleDataHandler.java:34)
+	at com.tvd12.ezyfoxserver.nio.handler.EzySimpleNioDataHandler.channelRead(EzySimpleNioDataHandler.java:19)
+	at com.tvd12.ezyfoxserver.nio.handler.EzyAbstractHandlerGroup.fireChannelRead(EzyAbstractHandlerGroup.java:132)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.processRequestQueue0(EzySocketRequestHandler.java:69)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.processRequestQueue(EzySocketRequestHandler.java:57)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.processRequestQueue0(EzySocketRequestHandler.java:37)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.handleEvent(EzySocketRequestHandler.java:19)
+	at com.tvd12.ezyfoxserver.socket.EzySocketEventLoopOneHandler$1.eventLoop0(EzySocketEventLoopOneHandler.java:19)
+	at com.tvd12.ezyfoxserver.socket.EzySimpleSocketEventLoop.eventLoop(EzySimpleSocketEventLoop.java:24)
+	at com.tvd12.ezyfoxserver.socket.EzySocketEventLoop.lambda$newServiceTask$0(EzySocketEventLoop.java:36)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.tvd12.ezyfoxserver.exception.EzyLoginErrorException: invalid password
+	at org.youngmonkeys.plugin.controller.UserLoginController.handle(UserLoginController.java:39)
+	at org.youngmonkeys.plugin.controller.UserLoginController.handle(UserLoginController.java:18)
+	at com.tvd12.ezyfoxserver.context.EzyAbstractContext.handleEvent(EzyAbstractContext.java:53)
+	at com.tvd12.ezyfoxserver.command.impl.EzyBroadcastPluginsEventImpl.firePluginEvent(EzyBroadcastPluginsEventImpl.java:47)
+	at com.tvd12.ezyfoxserver.command.impl.EzyBroadcastPluginsEventImpl.fire(EzyBroadcastPluginsEventImpl.java:33)
+	at com.tvd12.ezyfoxserver.context.EzySimpleZoneContext.broadcastPlugins(EzySimpleZoneContext.java:85)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.firePluginEvent(EzyLoginController.java:77)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.control(EzyLoginController.java:66)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.handle(EzyLoginController.java:35)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.handle(EzyLoginController.java:23)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.handleRequest(EzySimpleDataHandler.java:108)
+	... 12 more
+09 Apr 2022 | 21:12:54,065 | INFO  | ezyfox-disconnection-handler-17-1 | wrapper.impl.EzyNioSessionManagerImpl |     | remove session: Session#3(owner: null, address: /127.0.0.1:54558), remain sessions = 0, login sessions = 0, sessions by id = 0, sessions by connection = 0
+09 Apr 2022 | 21:12:54,065 | INFO  | ezyfox-disconnection-handler-17-1 | command.impl.EzyCloseSessionImpl |     | close session: /127.0.0.1:54558, reason: UNKNOWN
+09 Apr 2022 | 21:14:40,269 | INFO  | ezyfox-socket-reader-12-1 | wrapper.impl.EzyNioSessionManagerImpl |     | provide session: Session#4(owner: null, address: /127.0.0.1:54691), sessions size = 1
+09 Apr 2022 | 21:14:40,291 | INFO  | ezyfox-system-request-handler-15-1 | plugin.controller.UserLoginController |     | Welcome test! login in
+09 Apr 2022 | 21:14:40,293 | WARN  | ezyfox-system-request-handler-15-1 | command.impl.EzyHandleExceptionImpl |     | handle exception
+com.tvd12.ezyfoxserver.exception.EzyRequestHandleException: error when handle request from: Session#4(owner: null, address: /127.0.0.1:54691), command: LOGIN, data: [EzyCard, test, test, null]
+	at com.tvd12.ezyfoxserver.exception.EzyRequestHandleException.requestHandleException(EzyRequestHandleException.java:29)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.handleRequest(EzySimpleDataHandler.java:112)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.handleReceivedData(EzySimpleDataHandler.java:86)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.dataReceived(EzySimpleDataHandler.java:34)
+	at com.tvd12.ezyfoxserver.nio.handler.EzySimpleNioDataHandler.channelRead(EzySimpleNioDataHandler.java:19)
+	at com.tvd12.ezyfoxserver.nio.handler.EzyAbstractHandlerGroup.fireChannelRead(EzyAbstractHandlerGroup.java:132)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.processRequestQueue0(EzySocketRequestHandler.java:69)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.processRequestQueue(EzySocketRequestHandler.java:57)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.processRequestQueue0(EzySocketRequestHandler.java:37)
+	at com.tvd12.ezyfoxserver.socket.EzySocketRequestHandler.handleEvent(EzySocketRequestHandler.java:19)
+	at com.tvd12.ezyfoxserver.socket.EzySocketEventLoopOneHandler$1.eventLoop0(EzySocketEventLoopOneHandler.java:19)
+	at com.tvd12.ezyfoxserver.socket.EzySimpleSocketEventLoop.eventLoop(EzySimpleSocketEventLoop.java:24)
+	at com.tvd12.ezyfoxserver.socket.EzySocketEventLoop.lambda$newServiceTask$0(EzySocketEventLoop.java:36)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.tvd12.ezyfoxserver.exception.EzyLoginErrorException: invalid password
+	at org.youngmonkeys.plugin.controller.UserLoginController.handle(UserLoginController.java:39)
+	at org.youngmonkeys.plugin.controller.UserLoginController.handle(UserLoginController.java:18)
+	at com.tvd12.ezyfoxserver.context.EzyAbstractContext.handleEvent(EzyAbstractContext.java:53)
+	at com.tvd12.ezyfoxserver.command.impl.EzyBroadcastPluginsEventImpl.firePluginEvent(EzyBroadcastPluginsEventImpl.java:47)
+	at com.tvd12.ezyfoxserver.command.impl.EzyBroadcastPluginsEventImpl.fire(EzyBroadcastPluginsEventImpl.java:33)
+	at com.tvd12.ezyfoxserver.context.EzySimpleZoneContext.broadcastPlugins(EzySimpleZoneContext.java:85)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.firePluginEvent(EzyLoginController.java:77)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.control(EzyLoginController.java:66)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.handle(EzyLoginController.java:35)
+	at com.tvd12.ezyfoxserver.controller.EzyLoginController.handle(EzyLoginController.java:23)
+	at com.tvd12.ezyfoxserver.handler.EzySimpleDataHandler.handleRequest(EzySimpleDataHandler.java:108)
+	... 12 more
+09 Apr 2022 | 21:14:40,301 | INFO  | ezyfox-disconnection-handler-17-2 | wrapper.impl.EzyNioSessionManagerImpl |     | remove session: Session#4(owner: null, address: /127.0.0.1:54691), remain sessions = 0, login sessions = 0, sessions by id = 0, sessions by connection = 0
+09 Apr 2022 | 21:14:40,301 | INFO  | ezyfox-disconnection-handler-17-2 | command.impl.EzyCloseSessionImpl |     | close session: /127.0.0.1:54691, reason: UNKNOWN

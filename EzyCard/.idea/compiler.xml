@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="EzyCard-common" />
+        <module name="EzyCard-plugin" />
+        <module name="EzyCard-app-entry" />
+        <module name="EzyCard-app-api" />
+        <module name="EzyCard-startup" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

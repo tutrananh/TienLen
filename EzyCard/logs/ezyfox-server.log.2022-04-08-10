@@ -1,0 +1,175 @@
+08 Apr 2022 | 10:55:21,576 | INFO  | main | ezyfoxserver.embedded.EzyEmbeddedStarter |     | settings: 
+{
+    "settings": {
+        "nodeName": "ezyfox",
+        "udp": {
+            "channelPoolSize": 16,
+            "codecCreator": "com.tvd12.ezyfox.codec.MsgPackCodecCreator",
+            "address": "0.0.0.0",
+            "maxRequestSize": 1024,
+            "port": 2611,
+            "active": false,
+            "handlerThreadPoolSize": 5
+        },
+        "debug": false,
+        "maxSessions": 999999,
+        "sessionManagement": {
+            "sessionMaxRequestPerSecond": {
+                "action": "DROP_REQUEST",
+                "value": 15
+            },
+            "sessionMaxIdleTime": 30000,
+            "sessionMaxWaitingTimeInSecond": 30,
+            "sessionMaxIdleTimeInSecond": 30,
+            "sessionMaxWaitingTime": 30000
+        },
+        "logger": {
+            "ignoredCommands": "[PONG, PING]"
+        },
+        "zones": {
+            "size": 1,
+            "zones": [{
+                    "maxUsers": 999999,
+                    "userManagement": {
+                        "allowGuestLogin": false,
+                        "userMaxIdleTime": 0,
+                        "allowChangeSession": true,
+                        "guestNamePrefix": "Guest#",
+                        "maxSessionPerUser": 5,
+                        "userMaxIdleTimeInSecond": 0,
+                        "userNamePattern": "^[a-zA-Z0-9_.#]{3,64}$"
+                    },
+                    "streaming": {
+                        "enable": false
+                    },
+                    "plugins": {
+                        "size": 1,
+                        "plugins": [{
+                                "listenEvents": "[USER_LOGIN]",
+                                "folder": "EzyCard",
+                                "threadPoolSize": 0,
+                                "configFile": "",
+                                "name": "EzyCard",
+                                "activeProfiles": null,
+                                "entryLoader": "org.youngmonkeys.ApplicationStartup$DecoratedPluginEntryLoader",
+                                "id": 1,
+                                "packageName": null,
+                                "priority": 0
+                            }]
+                    },
+                    "configFile": "",
+                    "name": "EzyCard",
+                    "id": 1,
+                    "eventControllers": {
+                        "eventControllers": []
+                    },
+                    "applications": {
+                        "size": 1,
+                        "apps": [{
+                                "maxUsers": 999999,
+                                "folder": "EzyCard",
+                                "threadPoolSize": 0,
+                                "configFile": "",
+                                "name": "EzyCard",
+                                "activeProfiles": null,
+                                "entryLoader": "org.youngmonkeys.ApplicationStartup$DecoratedAppEntryLoader",
+                                "id": 1,
+                                "packageName": null
+                            }]
+                    }
+                }]
+        },
+        "eventControllers": {
+            "eventControllers": []
+        },
+        "streaming": {
+            "enable": false
+        },
+        "threadPoolSize": {
+            "extensionRequestHandler": 8,
+            "socketUserRemovalHandler": 3,
+            "streamHandler": 8,
+            "socketDisconnectionHandler": 2,
+            "socketDataReceiver": 8,
+            "statistics": 1,
+            "systemRequestHandler": 8
+        },
+        "websocket": {
+            "codecCreator": "com.tvd12.ezyfox.codec.JacksonCodecCreator",
+            "address": "0.0.0.0",
+            "sslConfig": {
+                "file": "ssl-config.properties",
+                "loader": "com.tvd12.ezyfoxserver.ssl.EzySimpleSslConfigLoader",
+                "contextFactoryBuilder": "com.tvd12.ezyfoxserver.ssl.EzySimpleSslContextFactoryBuilder"
+            },
+            "port": 2208,
+            "sslActive": false,
+            "active": true,
+            "sslPort": 2812,
+            "maxFrameSize": 2048,
+            "managementEnable": false,
+            "writerThreadPoolSize": 8
+        },
+        "socket": {
+            "codecCreator": "com.tvd12.ezyfox.codec.MsgPackCodecCreator",
+            "address": "0.0.0.0",
+            "maxRequestSize": 4096,
+            "port": 3005,
+            "sslActive": false,
+            "active": true,
+            "tcpNoDelay": false,
+            "writerThreadPoolSize": 8
+        },
+        "admins": {
+            "count": 0,
+            "admins": []
+        }
+    },
+    "version": "1.0.0",
+    "config": {
+        "loggerConfigFile": "default",
+        "enableAppClassLoader": false,
+        "ezyfoxHome": ""
+    }
+}
+08 Apr 2022 | 10:55:22,531 | INFO  | main | tvd12.ezyfoxserver.EzyZonesStarter |     | start zones: [EzyCard]
+08 Apr 2022 | 10:55:22,531 | INFO  | main | tvd12.ezyfoxserver.EzyZonesStarter |     | start all plugins ...
+08 Apr 2022 | 10:55:22,533 | INFO  | main | tvd12.ezyfoxserver.EzyPluginsStarter |     | start plugins: [EzyCard]
+08 Apr 2022 | 10:55:22,543 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedPluginEntryLoader$1 |     |
+=================== EzyCard PLUGIN START CONFIG ================
+
+08 Apr 2022 | 10:55:22,733 | INFO  | main | bean.impl.EzySimpleBeanContext$Builder |     | active profiles: null
+08 Apr 2022 | 10:55:22,852 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedPluginEntryLoader$1 |     | add  event USER_LOGIN controller org.youngmonkeys.plugin.controller.UserLoginController@5c7933ad
+08 Apr 2022 | 10:55:22,852 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedPluginEntryLoader$1 |     | add  event SERVER_READY controller org.youngmonkeys.plugin.controller.ServerReadyController@2dfaea86
+08 Apr 2022 | 10:55:22,863 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedPluginEntryLoader$1 |     |
+=================== EzyCard PLUGIN END CONFIG ================
+
+08 Apr 2022 | 10:55:22,864 | INFO  | main | tvd12.ezyfoxserver.EzyZonesStarter |     | start all apps ...
+08 Apr 2022 | 10:55:22,864 | INFO  | main | tvd12.ezyfoxserver.EzyAppsStarter |     | start apps: [EzyCard]
+08 Apr 2022 | 10:55:22,867 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedAppEntryLoader$1 |     |
+=================== EzyCard APP START CONFIG ================
+
+08 Apr 2022 | 10:55:23,021 | INFO  | main | bean.impl.EzySimpleBeanContext$Builder |     | active profiles: null
+08 Apr 2022 | 10:55:23,043 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedAppEntryLoader$1 |     | add  event SERVER_READY controller org.youngmonkeys.app.controller.ServerReadyController@3e6f3f28
+08 Apr 2022 | 10:55:23,061 | INFO  | main | org.youngmonkeys.ApplicationStartup$DecoratedAppEntryLoader$1 |     |
+=================== EzyCard APP END CONFIG ================
+
+08 Apr 2022 | 10:55:23,351 | INFO  | main | jetty.util.log |     | Logging initialized @2538ms to org.eclipse.jetty.util.log.Slf4jLog
+08 Apr 2022 | 10:55:23,445 | INFO  | main | jetty.server.Server |     | jetty-9.4.43.v20210629; built: 2021-06-30T11:07:22.254Z; git: 526006ecfa3af7f1a27ef3a288e2bef7ea9dd7e8; jvm 1.8.0_301-b09
+08 Apr 2022 | 10:55:23,514 | INFO  | main | server.handler.ContextHandler |     | Started o.e.j.s.h.ContextHandler@29ca3d04{/ws,null,AVAILABLE}
+08 Apr 2022 | 10:55:23,523 | INFO  | main | jetty.server.AbstractConnector |     | Started ServerConnector@79179359{HTTP/1.1, (http/1.1)}{0.0.0.0:2208}
+08 Apr 2022 | 10:55:23,523 | INFO  | main | jetty.server.Server |     | Started @2711ms
+08 Apr 2022 | 10:55:23,530 | INFO  | main | ezyfoxserver.nio.EzyNioServerBootstrap |     | 
+
+  ______ ________     ________ ______   __           _____  ______          _______     __
+ |  ____|___  /\ \   / /  ____/ __ \ \ / /          |  __ \|  ____|   /\   |  __ \ \   / /
+ | |__     / /  \ \_/ /| |__ | |  | \ V /   ______  | |__) | |__     /  \  | |  | \ \_/ / 
+ |  __|   / /    \   / |  __|| |  | |> <   |______| |  _  /|  __|   / /\ \ | |  | |\   /  
+ | |____ / /__    | |  | |   | |__| / . \           | | \ \| |____ / ____ \| |__| | | |   
+ |______/_____|   |_|  |_|    \____/_/ \_\          |_|  \_\______/_/    \_\_____/  |_|   
+                                                                                          
+                                                                                          
+
+
+08 Apr 2022 | 10:55:23,531 | INFO  | main | plugin.controller.ServerReadyController |     | EzyCard plugin: fire custom app ready
+08 Apr 2022 | 10:55:23,531 | INFO  | main | app.controller.ServerReadyController |     | EzyCard app: fire custom app ready
